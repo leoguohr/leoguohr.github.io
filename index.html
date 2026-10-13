@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Haoran Guo · 郭浩然</title>
+  <meta name="description" content="Haoran Guo, undergraduate at USTC. Projects in 3D generation, multi-agent systems, and robotics.">
+  <link rel="canonical" href="https://leoguohr.github.io/">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <script src="site.js" defer></script>
+  <script src="home.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main" data-en="Skip to content" data-zh="跳至正文">Skip to content</a>
+  <div class="page">
+    <header class="topbar">
+      <a class="wordmark" href="#about">HG<span>.</span></a>
+      <nav aria-label="Main navigation">
+        <a href="#about" data-en="About" data-zh="关于">About</a>
+        <a href="#projects" data-en="Projects" data-zh="项目">Projects</a>
+        <a href="#contact" data-en="Contact" data-zh="联系">Contact</a>
+        <div class="language" aria-label="Language"><button data-language="en" aria-pressed="true">EN</button><button data-language="zh" aria-pressed="false">中文</button></div>
+      </nav>
+    </header>
+    <main id="main">
+      <section class="intro" id="about">
+        <p class="eyebrow" data-en="UNIVERSITY OF SCIENCE AND TECHNOLOGY OF CHINA" data-zh="中国科学技术大学">UNIVERSITY OF SCIENCE AND TECHNOLOGY OF CHINA</p>
+        <h1>Haoran Guo <span class="chinese-name">郭浩然</span></h1>
+        <p class="intro-lead" data-en="I build and study systems that connect 3D perception, generation, and interaction." data-zh="我关注三维感知、生成与交互，也喜欢把想法落实为可运行的系统。">I build and study systems that connect 3D perception, generation, and interaction.</p>
+        <p data-en="I am an undergraduate in the School of Information Science and Technology at USTC (Class of 2024, expected graduation in 2028). My recent work includes topology reconstruction, point-cloud-conditioned vertex diffusion, and multi-agent scene generation." data-zh="我是中国科学技术大学信息科学技术学院2024级本科生，预计2028年毕业。近期项目涉及拓扑重建、点云条件顶点扩散和多智能体场景生成。">I am an undergraduate in the School of Information Science and Technology at USTC (Class of 2024, expected graduation in 2028). My recent work includes topology reconstruction, point-cloud-conditioned vertex diffusion, and multi-agent scene generation.</p>
+        <div class="contact-links">
+          <a href="mailto:ghr@mail.ustc.edu.cn">ghr@mail.ustc.edu.cn <span aria-hidden="true">↗</span></a>
+          <a href="https://github.com/leoguohr">GitHub <span aria-hidden="true">↗</span></a>
+          <a href="assets/Haoran_Guo_CV.pdf" data-cv data-en="Curriculum vitae ↗" data-zh="个人简历 ↗">Curriculum vitae ↗</a>
+        </div>
+        <div class="education-line"><span data-en="Undergraduate · 2024–2028" data-zh="本科 · 2024–2028">Undergraduate · 2024–2028</span><span>GPA 3.52 / 4.3</span><span data-en="Hefei, China" data-zh="中国 · 合肥">Hefei, China</span></div>
+      </section>
+
+      <section id="projects" class="projects-section">
+        <div class="section-title"><h2 data-en="Selected projects" data-zh="项目经历">Selected projects</h2><span class="section-note" data-en="Research & engineering" data-zh="研究与工程实践">Research & engineering</span></div>
+
+        <article class="project" id="nexus">
+          <figure class="project-visual nexus-visual">
+            <img class="nexus-result" src="assets/nexus-result.webp" alt="Ground-truth mesh and actual topology reconstruction, side by side" width="799" height="329">
+            <figcaption data-en="Target mesh & reconstruction" data-zh="目标网格与重建效果">Target mesh & reconstruction</figcaption>
+          </figure>
+          <div class="project-copy">
+            <div class="project-meta"><span>3D GENERATION</span><time>2026.07.15–08.15</time></div>
+            <h3>NEXUS: <span data-en="Topology VAE & Vertex Diffusion" data-zh="拓扑VAE与顶点扩散">Topology VAE & Vertex Diffusion</span></h3>
+            <p data-en="Built PyTorch models for 3D topology reconstruction and point-cloud-conditioned vertex generation, together with training and visualization tools." data-zh="基于PyTorch实现三维拓扑重建与点云条件顶点生成模型，搭建训练和可视化流程。">Built PyTorch models for 3D topology reconstruction and point-cloud-conditioned vertex generation, together with training and visualization tools.</p>
+            <p class="result"><strong>99.63%</strong> <span data-en="actual Face micro-F1 · 100 training meshes" data-zh="实际Face micro-F1 · 固定100条训练网格">actual Face micro-F1 · 100 training meshes</span></p>
+            <div class="project-links"><a href="https://github.com/leoguohr/suxen/tree/vae/archive-20261008/vae" data-en="Code ↗" data-zh="代码 ↗">Code ↗</a></div>
+          </div>
+        </article>
+
+        <article class="project" id="persona">
+          <figure class="project-visual">
+            <div class="comparison" id="scene-comparison">
+              <img src="assets/scene-edited.webp" alt="Generated art-student interior after an event-driven edit" width="1435" height="1096" loading="lazy">
+              <img class="before-image" src="assets/scene-original.webp" alt="Original generated art-student interior" width="1435" height="1096" loading="lazy">
+              <span class="comparison-label left" data-en="Original" data-zh="生成">Original</span><span class="comparison-label right" data-en="Edited" data-zh="编辑">Edited</span>
+              <div class="comparison-line" aria-hidden="true"><span>↔</span></div>
+              <input id="scene-slider" type="range" min="0" max="100" value="50" aria-label="Compare original and edited scenes">
+            </div>
+            <figcaption data-en="Drag to compare · outputs from the project" data-zh="拖动对比 · 项目生成与编辑结果">Drag to compare · outputs from the project</figcaption>
+          </figure>
+          <div class="project-copy">
+            <div class="project-meta"><span>MULTI-AGENT SYSTEMS</span><time>2026.07.15–08.15</time></div>
+            <h3>Persona-to-Scene</h3>
+            <p data-en="Built a multi-agent pipeline that turns persona descriptions into interior scenes and supports event-driven image editing, from spatial planning to image generation." data-zh="开发从人物描述到室内场景的多智能体管线，串联空间规划与图像生成，支持事件驱动的场景编辑。">Built a multi-agent pipeline that turns persona descriptions into interior scenes and supports event-driven image editing, from spatial planning to image generation.</p>
+            <p class="quiet" data-en="Shown: a generated artist’s living space and its edited version." data-zh="图示：面向绘画学习者生成的居住空间及其编辑结果。">Shown: a generated artist’s living space and its edited version.</p>
+          </div>
+        </article>
+
+        <article class="project" id="scenefun3d">
+          <figure class="project-visual benchmark-visual">
+            <a class="benchmark" href="https://scenefun3d.github.io/benchmark">
+              <span class="benchmark-kicker">SceneFun3D · Track 1</span>
+              <strong>Night’s Watch</strong>
+              <span class="benchmark-task" data-en="Functionality segmentation" data-zh="功能区域分割">Functionality segmentation</span>
+              <div class="benchmark-topic"><span>3D</span><span data-en="Understanding how we interact with spaces." data-zh="理解空间中的功能与交互。">Understanding how we interact with spaces.</span></div>
+              <span class="benchmark-foot" data-en="View official benchmark ↗" data-zh="官方榜单 ↗">View official benchmark ↗</span>
+            </a>
+            <figcaption data-en="Team Night’s Watch" data-zh="Night’s Watch队">Team Night’s Watch</figcaption>
+          </figure>
+          <div class="project-copy">
+            <div class="project-meta"><span>3D SCENE UNDERSTANDING</span></div>
+            <h3 data-en="SceneFun3D · Functionality Segmentation" data-zh="SceneFun3D · 三维场景功能区域分割">SceneFun3D · Functionality Segmentation</h3>
+            <p data-en="Participated as part of Night’s Watch in Track 1. Prepared the environment and dataset, reproduced a 3D perception baseline, and organized training, inference, and evaluation for functional-region understanding in indoor scenes." data-zh="以Night’s Watch队参与Track 1。完成环境与数据集准备，复现三维感知基线，梳理训练、推理与评价流程，研究室内场景的功能区域理解。">Participated as part of Night’s Watch in Track 1. Prepared the environment and dataset, reproduced a 3D perception baseline, and organized training, inference, and evaluation for functional-region understanding in indoor scenes.</p>
+            <div class="project-links"><a href="https://scenefun3d.github.io/benchmark" data-en="Official benchmark ↗" data-zh="官方榜单 ↗">Official benchmark ↗</a></div>
+          </div>
+        </article>
+
+        <div class="additional-projects">
+          <article class="compact-project">
+            <div class="compact-heading"><h3 data-en="RoboGame · Perception & Robotic Grasping" data-zh="RoboGame · 视觉识别与机械臂抓取">RoboGame · Perception & Robotic Grasping</h3><time>2026.06–10</time></div>
+            <p data-en="Built RealSense D435i block detection and 3D localization, camera-to-arm coordinate transforms, and five-servo suction-grasp control. Completed hardware integration testing." data-zh="基于RealSense D435i实现方块检测与三维定位，完成相机到机械臂坐标变换、五舵机逆运动学及吸盘抓取流程，完成实机联调。">Built RealSense D435i block detection and 3D localization, camera-to-arm coordinate transforms, and five-servo suction-grasp control. Completed hardware integration testing.</p>
+          </article>
+          <article class="compact-project">
+            <div class="compact-heading"><h3 data-en="Facial Expression Recognition" data-zh="人脸表情识别">Facial Expression Recognition</h3></div>
+            <p data-en="Implemented MobileNetV2 classification on FER2013 and compared accuracy and computational cost with ResNet, EfficientNet, and MAE-DFER." data-zh="基于MobileNetV2实现FER2013表情分类，对比ResNet、EfficientNet和MAE-DFER的分类准确率与计算开销。">Implemented MobileNetV2 classification on FER2013 and compared accuracy and computational cost with ResNet, EfficientNet, and MAE-DFER.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="closing" id="contact">
+        <div><h2 data-en="A little more" data-zh="更多">A little more</h2><p data-en="Outside my projects, I’m a member of the USTC boxing team." data-zh="项目之外，我也是中国科学技术大学拳击队的一员。">Outside my projects, I’m a member of the USTC boxing team.</p><p class="quiet" data-en="Python · C/C++ · PyTorch · Linux · Git · MuJoCo · STM32 · MATLAB" data-zh="Python · C/C++ · PyTorch · Linux · Git · MuJoCo · STM32 · MATLAB">Python · C/C++ · PyTorch · Linux · Git · MuJoCo · STM32 · MATLAB</p></div>
+        <a class="email-bottom" href="mailto:ghr@mail.ustc.edu.cn"><span data-en="Get in touch" data-zh="联系我">Get in touch</span>ghr@mail.ustc.edu.cn ↗</a>
+      </section>
+    </main>
+    <footer><span>© 2026 Haoran Guo</span><span><span data-en="Layout inspired by" data-zh="布局参考">Layout inspired by</span> <a href="https://github.com/w-r-s/academic-homepage-template">w-r-s</a></span></footer>
+  </div>
+</body>
+</html>
