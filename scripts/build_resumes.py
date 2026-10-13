@@ -29,7 +29,7 @@ DATA = {
     '开发多个AI协作的场景生成系统，根据人物的兴趣与生活习惯，规划房间布局并生成个性化室内图像。',
     '支持活动需求变化后的场景编辑；通过信息追踪、指令校验及生成前后图像对比，验证从人物描述到场景修改的完整流程。']),
    ('SceneFun3D Track 1：三维场景交互区域识别','',[
-    '独立参赛，以Night’s Watch为队名。任务是从三维室内场景中识别把手、按钮等可交互部位，帮助计算机理解物体的使用方式。',
+    '独立参赛并获得第六名。任务是从三维室内场景中识别把手、按钮等可交互部位，帮助计算机理解物体的使用方式。',
     '独立完成环境与数据准备、基线模型复现、训练和评价；测试集提交已收录于SceneFun3D官方公开榜单。']),
    ('RoboGame：视觉识别与机械臂抓取','2026.06 - 10',[
     '使用RealSense D435i深度相机识别彩色方块并估计三维位置，再控制机械臂用吸盘完成抓取、抬升和返回；完成视觉定位、机械臂控制及实机联调。']),
@@ -56,7 +56,7 @@ DATA = {
     'Built collaborating AI agents that turn a person’s interests and daily habits into a room layout and personalized interior images.',
     'Supported scene editing as activity needs change; used information tracking, instruction validation, and before/after image comparisons in end-to-end case studies.']),
    ('SceneFun3D Track 1: Interactive 3D Scene Understanding','',[
-    'Competed independently under the name Night’s Watch, identifying interactive parts of indoor 3D scenes, such as handles and buttons.',
+    'Placed sixth as an independent entrant, identifying interactive parts of indoor 3D scenes, such as handles and buttons.',
     'Completed environment and data preparation, baseline reproduction, training, and evaluation. Test-set results are listed on the official SceneFun3D benchmark.']),
    ('RoboGame: RGB-D Perception and Robotic Grasping','Jun - Oct 2026',[
     'Built a vision-guided grasping system: a RealSense D435i depth camera locates colored blocks, and a robotic arm uses a suction cup to pick them up. Completed perception, arm control, and hardware integration testing.']),
