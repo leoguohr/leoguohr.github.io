@@ -9,6 +9,7 @@
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="style.css">
   <script src="site.js" defer></script>
+  <script src="mesh.js" defer></script>
   <script src="home.js" defer></script>
 </head>
 <body>
@@ -28,7 +29,7 @@
         <p class="eyebrow" data-en="UNIVERSITY OF SCIENCE AND TECHNOLOGY OF CHINA" data-zh="中国科学技术大学">UNIVERSITY OF SCIENCE AND TECHNOLOGY OF CHINA</p>
         <h1>Haoran Guo <span class="chinese-name">郭浩然</span></h1>
         <p class="intro-lead" data-en="I build and study systems that connect 3D perception, generation, and interaction." data-zh="我关注三维感知、生成与交互，也喜欢把想法落实为可运行的系统。">I build and study systems that connect 3D perception, generation, and interaction.</p>
-        <p data-en="I am an undergraduate in the School of Information Science and Technology at USTC (Class of 2024, expected graduation in 2028). My recent work includes topology reconstruction, point-cloud-conditioned vertex diffusion, and multi-agent scene generation." data-zh="我是中国科学技术大学信息科学技术学院2024级本科生，预计2028年毕业。近期项目涉及拓扑重建、点云条件顶点扩散和多智能体场景生成。">I am an undergraduate in the School of Information Science and Technology at USTC (Class of 2024, expected graduation in 2028). My recent work includes topology reconstruction, point-cloud-conditioned vertex diffusion, and multi-agent scene generation.</p>
+        <p data-en="I am an undergraduate in the School of Information Science and Technology at USTC (Class of 2024, expected graduation in 2028). My recent projects explore how AI can create 3D shapes, understand indoor spaces, and help robots interact with the world." data-zh="我是中国科学技术大学信息科学技术学院2024级本科生，预计2028年毕业。近期项目主要探索如何用AI生成三维形状、理解室内空间，并帮助机器人与环境交互。">I am an undergraduate in the School of Information Science and Technology at USTC (Class of 2024, expected graduation in 2028). My recent projects explore how AI can create 3D shapes, understand indoor spaces, and help robots interact with the world.</p>
         <div class="contact-links">
           <a href="mailto:ghr@mail.ustc.edu.cn">ghr@mail.ustc.edu.cn <span aria-hidden="true">↗</span></a>
           <a href="https://github.com/leoguohr">GitHub <span aria-hidden="true">↗</span></a>
@@ -42,14 +43,14 @@
 
         <article class="project" id="nexus">
           <figure class="project-visual nexus-visual">
-            <img class="nexus-result" src="assets/nexus-result.webp" alt="Ground-truth mesh and actual topology reconstruction, side by side" width="799" height="329">
-            <figcaption data-en="Target mesh & reconstruction" data-zh="目标网格与重建效果">Target mesh & reconstruction</figcaption>
+            <canvas id="mesh-preview" tabindex="0" aria-label="Rotating reconstructed 3D shape; drag or use arrow keys to rotate"></canvas>
+            <figcaption data-en="Reconstructed 3D surface · drag to rotate" data-zh="模型重建的三维表面 · 可拖动旋转">Reconstructed 3D surface · drag to rotate</figcaption>
           </figure>
           <div class="project-copy">
             <div class="project-meta"><span>3D GENERATION</span><time>2026.07.15–08.15</time></div>
-            <h3>NEXUS: <span data-en="Topology VAE & Vertex Diffusion" data-zh="拓扑VAE与顶点扩散">Topology VAE & Vertex Diffusion</span></h3>
-            <p data-en="Built PyTorch models for 3D topology reconstruction and point-cloud-conditioned vertex generation, together with training and visualization tools." data-zh="基于PyTorch实现三维拓扑重建与点云条件顶点生成模型，搭建训练和可视化流程。">Built PyTorch models for 3D topology reconstruction and point-cloud-conditioned vertex generation, together with training and visualization tools.</p>
-            <p class="result"><strong>99.63%</strong> <span data-en="actual Face micro-F1 · 100 training meshes" data-zh="实际Face micro-F1 · 固定100条训练网格">actual Face micro-F1 · 100 training meshes</span></p>
+            <h3>NEXUS: <span data-en="3D Shape Generation & Reconstruction" data-zh="三维形状生成与重建">3D Shape Generation & Reconstruction</span></h3>
+            <p data-en="A 3D mesh describes an object’s surface using connected triangles. I built models that learn vertex positions and how they connect, with training and visualization tools for shape generation and reconstruction." data-zh="三维物体的表面通常由许多小三角形拼接而成，称为网格（mesh）。我实现了学习三维点及其连接关系的模型，并搭建训练和可视化流程，探索物体形状的生成与重建。">A 3D mesh describes an object’s surface using connected triangles. I built models that learn vertex positions and how they connect, with training and visualization tools for shape generation and reconstruction.</p>
+            <p class="result"><strong>99.63%</strong> <span data-en="surface reconstruction F1 · 100 training shapes" data-zh="表面重建F1评分 · 100个训练样本">surface reconstruction F1 · 100 training shapes</span></p>
             <div class="project-links"><a href="https://github.com/leoguohr/suxen/tree/vae/archive-20261008/vae" data-en="Code ↗" data-zh="代码 ↗">Code ↗</a></div>
           </div>
         </article>
@@ -67,8 +68,8 @@
           </figure>
           <div class="project-copy">
             <div class="project-meta"><span>MULTI-AGENT SYSTEMS</span><time>2026.07.15–08.15</time></div>
-            <h3>Persona-to-Scene</h3>
-            <p data-en="Built a multi-agent pipeline that turns persona descriptions into interior scenes and supports event-driven image editing, from spatial planning to image generation." data-zh="开发从人物描述到室内场景的多智能体管线，串联空间规划与图像生成，支持事件驱动的场景编辑。">Built a multi-agent pipeline that turns persona descriptions into interior scenes and supports event-driven image editing, from spatial planning to image generation.</p>
+            <h3>Persona-to-Scene: <span data-en="Personalized Interior Generation" data-zh="个性化室内场景生成">Personalized Interior Generation</span></h3>
+            <p data-en="Built a system of collaborating AI agents that turns descriptions of a person’s habits and interests into a personalized interior. It plans the room and generates images, then edits the scene when the person’s activities change." data-zh="让多个AI分工协作，根据一个人的兴趣与生活习惯规划房间、生成室内图像，并在活动需求改变时编辑场景。">Built a system of collaborating AI agents that turns descriptions of a person’s habits and interests into a personalized interior. It plans the room and generates images, then edits the scene when the person’s activities change.</p>
             <p class="quiet" data-en="Shown: a generated artist’s living space and its edited version." data-zh="图示：面向绘画学习者生成的居住空间及其编辑结果。">Shown: a generated artist’s living space and its edited version.</p>
           </div>
         </article>
@@ -82,12 +83,12 @@
               <div class="benchmark-topic"><span>3D</span><span data-en="Understanding how we interact with spaces." data-zh="理解空间中的功能与交互。">Understanding how we interact with spaces.</span></div>
               <span class="benchmark-foot" data-en="View official benchmark ↗" data-zh="官方榜单 ↗">View official benchmark ↗</span>
             </a>
-            <figcaption data-en="Team Night’s Watch" data-zh="Night’s Watch队">Team Night’s Watch</figcaption>
+            <figcaption data-en="Independent entry · Night’s Watch" data-zh="独立参赛 · Night’s Watch">Independent entry · Night’s Watch</figcaption>
           </figure>
           <div class="project-copy">
             <div class="project-meta"><span>3D SCENE UNDERSTANDING</span></div>
-            <h3 data-en="SceneFun3D · Functionality Segmentation" data-zh="SceneFun3D · 三维场景功能区域分割">SceneFun3D · Functionality Segmentation</h3>
-            <p data-en="Participated as part of Night’s Watch in Track 1. Prepared the environment and dataset, reproduced a 3D perception baseline, and organized training, inference, and evaluation for functional-region understanding in indoor scenes." data-zh="以Night’s Watch队参与Track 1。完成环境与数据集准备，复现三维感知基线，梳理训练、推理与评价流程，研究室内场景的功能区域理解。">Participated as part of Night’s Watch in Track 1. Prepared the environment and dataset, reproduced a 3D perception baseline, and organized training, inference, and evaluation for functional-region understanding in indoor scenes.</p>
+            <h3 data-en="SceneFun3D · Understanding Interactive 3D Spaces" data-zh="SceneFun3D · 识别三维场景中的可交互区域">SceneFun3D · Understanding Interactive 3D Spaces</h3>
+            <p data-en="Competed independently in Track 1 under the name Night’s Watch. The task is to locate parts of a 3D scene that people can interact with, such as handles and buttons. I completed data preparation, baseline reproduction, training, and evaluation." data-zh="独立参赛，以Night’s Watch为队名。任务是让计算机从三维室内场景中找出把手、按钮等可交互部位；我完成了数据准备、基线复现、训练与评价。">Competed independently in Track 1 under the name Night’s Watch. The task is to locate parts of a 3D scene that people can interact with, such as handles and buttons. I completed data preparation, baseline reproduction, training, and evaluation.</p>
             <div class="project-links"><a href="https://scenefun3d.github.io/benchmark" data-en="Official benchmark ↗" data-zh="官方榜单 ↗">Official benchmark ↗</a></div>
           </div>
         </article>
@@ -95,11 +96,11 @@
         <div class="additional-projects">
           <article class="compact-project">
             <div class="compact-heading"><h3 data-en="RoboGame · Perception & Robotic Grasping" data-zh="RoboGame · 视觉识别与机械臂抓取">RoboGame · Perception & Robotic Grasping</h3><time>2026.06–10</time></div>
-            <p data-en="Built RealSense D435i block detection and 3D localization, camera-to-arm coordinate transforms, and five-servo suction-grasp control. Completed hardware integration testing." data-zh="基于RealSense D435i实现方块检测与三维定位，完成相机到机械臂坐标变换、五舵机逆运动学及吸盘抓取流程，完成实机联调。">Built RealSense D435i block detection and 3D localization, camera-to-arm coordinate transforms, and five-servo suction-grasp control. Completed hardware integration testing.</p>
+            <p data-en="Built a vision-guided grasping system: a depth camera locates colored blocks, and a robotic arm uses a suction cup to pick them up. Completed hardware integration testing." data-zh="用深度相机识别彩色方块的位置，再控制机械臂用吸盘抓取。完成视觉定位、机械臂控制与实机联调。">Built a vision-guided grasping system: a depth camera locates colored blocks, and a robotic arm uses a suction cup to pick them up. Completed hardware integration testing.</p>
           </article>
           <article class="compact-project">
             <div class="compact-heading"><h3 data-en="Facial Expression Recognition" data-zh="人脸表情识别">Facial Expression Recognition</h3></div>
-            <p data-en="Implemented MobileNetV2 classification on FER2013 and compared accuracy and computational cost with ResNet, EfficientNet, and MAE-DFER." data-zh="基于MobileNetV2实现FER2013表情分类，对比ResNet、EfficientNet和MAE-DFER的分类准确率与计算开销。">Implemented MobileNetV2 classification on FER2013 and compared accuracy and computational cost with ResNet, EfficientNet, and MAE-DFER.</p>
+            <p data-en="Trained a lightweight image classifier to recognize facial expressions, such as happiness and surprise. Compared several models on recognition accuracy and computational cost." data-zh="训练轻量图像分类模型，识别高兴、惊讶等人脸表情，并比较不同模型的识别准确率和计算开销。">Trained a lightweight image classifier to recognize facial expressions, such as happiness and surprise. Compared several models on recognition accuracy and computational cost.</p>
           </article>
         </div>
       </section>

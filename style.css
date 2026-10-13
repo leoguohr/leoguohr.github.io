@@ -7,3 +7,4 @@
 .benchmark-topic{display:flex;gap:16px;align-items:center;border-top:1px solid #d8e2d8;margin:18px 0;padding:15px 0 0;color:#65816c}.benchmark-topic>span:first-child{font-family:var(--serif);font-size:39px;line-height:1}.benchmark-topic>span:last-child{font-size:12px;line-height:1.6;max-width:150px}
 .chinese-name{display:inline-block;white-space:nowrap}
 @media(max-width:400px){.chinese-name{display:block;margin:10px 0 0;font-size:23px}}
+#mesh-preview{width:100%;height:240px;display:block;background:var(--wash);touch-action:none;cursor:grab}

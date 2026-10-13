@@ -21,20 +21,20 @@ DATA = {
   'courses':'核心课程：数学分析、线性代数、模拟电子技术、数字电子技术、现代控制理论。',
   'section':'科研与项目经历',
   'projects':[
-   ('NEXUS：三维拓扑VAE与点云条件顶点扩散','2026.07.15 - 08.15',[
-    '基于PyTorch实现并迭代拓扑VAE与点云条件八叉树顶点扩散模块，搭建数据处理、训练恢复、实际拓扑重建评价与可视化流程。',
-    '围绕Fourier坐标特征、Graph/LayerNorm顺序及Face负例采样开展对照实验，分析结构重建与优化行为。',
-    '最终VAE在固定100条训练网格上的实际Face micro-F1达到99.63%，五组固定后验噪声评价获得相近分数；Face由预测Edge图枚举后分类。']),
+   ('NEXUS：三维形状生成与重建','2026.07.15 - 08.15',[
+    '三维物体表面可用相互连接的小三角形表示，称为网格（mesh）。围绕NEXUS实现三维点生成与拓扑重建模型，学习点的位置及连接关系。',
+    '使用PyTorch搭建数据处理、模型训练、结果评价和可视化流程，并通过对照实验改进模型结构与训练方式。',
+    '在固定100个训练样本上，表面重建F1评分达到99.63%，综合衡量生成表面的完整性与准确性；不同随机采样条件下保持相近表现。']),
    ('Persona-to-Scene：多智能体场景生成与编辑','2026.07.15 - 08.15',[
-    '开发多智能体管线，将人物描述转化为场景内容、空间布局和结构化生成指令，支持室内图像生成及事件驱动编辑。',
-    '结合证据追踪、结构校验和成对图像评价，完成端到端案例验证，并整理生成与编辑前后的效果对比。']),
-   ('SceneFun3D Track 1：三维场景功能区域分割','',[
-    '以Night’s Watch队参与功能区域分割任务，完成环境配置和数据集准备，复现基线三维感知模型并梳理训练、推理与评价流程。',
-    '围绕真实室内场景的功能区域理解与可供性定位开展方案调研；测试集提交已收录于SceneFun3D官方公开榜单。']),
+    '开发多个AI协作的场景生成系统，根据人物的兴趣与生活习惯，规划房间布局并生成个性化室内图像。',
+    '支持活动需求变化后的场景编辑；通过信息追踪、指令校验及生成前后图像对比，验证从人物描述到场景修改的完整流程。']),
+   ('SceneFun3D Track 1：三维场景交互区域识别','',[
+    '独立参赛，以Night’s Watch为队名。任务是从三维室内场景中识别把手、按钮等可交互部位，帮助计算机理解物体的使用方式。',
+    '独立完成环境与数据准备、基线模型复现、训练和评价；测试集提交已收录于SceneFun3D官方公开榜单。']),
    ('RoboGame：视觉识别与机械臂抓取','2026.06 - 10',[
-    '基于RealSense D435i实现方块顶面识别与三维定位，结合深度对齐、IMU倾角补偿和多帧平均；完成相机到机械臂坐标变换、五舵机逆运动学及吸盘抓取流程，完成实机联调。']),
+    '使用RealSense D435i深度相机识别彩色方块并估计三维位置，再控制机械臂用吸盘完成抓取、抬升和返回；完成视觉定位、机械臂控制及实机联调。']),
    ('基于深度学习的人脸表情识别','',[
-    '基于MobileNetV2实现FER2013表情分类，对比ResNet、EfficientNet与MAE-DFER的分类准确率和计算开销，组织训练与评价流程。'])],
+    '基于MobileNetV2训练图像分类模型，识别高兴、惊讶等人脸表情；在FER2013数据集上比较多种模型的准确率与计算开销。'])],
   'skills':'技术能力','skill_lines':[
    '编程与开发：Python、C/C++、Linux/Ubuntu、Git。',
    '深度学习：PyTorch模型实现、训练调试、推理评价、三维网格处理与对照实验。',
@@ -48,20 +48,20 @@ DATA = {
   'courses':'Selected coursework: Mathematical Analysis, Linear Algebra, Modern Control Theory.',
   'section':'RESEARCH &amp; ENGINEERING PROJECTS',
   'projects':[
-   ('NEXUS: 3D Topology VAE and Vertex Diffusion','Jul 15 - Aug 15, 2026',[
-    'Implemented topology VAE and point-cloud-conditioned octree vertex diffusion components in PyTorch; built data processing, training recovery, structural evaluation, and visualization workflows.',
-    'Conducted controlled experiments on Fourier coordinate features, Graph/LayerNorm ordering, and face negative sampling to investigate reconstruction and optimization behavior.',
-    'Achieved <b>99.63% actual Face micro-F1 on 100 fixed training meshes</b>, with faces classified from predicted edge graphs; five fixed posterior-noise evaluations produced similar scores.']),
+   ('NEXUS: 3D Shape Generation and Reconstruction','Jul 15 - Aug 15, 2026',[
+    'A 3D mesh represents an object’s surface with connected triangles. Implemented models based on NEXUS that learn vertex positions and their connections for 3D shape generation and reconstruction.',
+    'Built PyTorch workflows for data processing, training, evaluation, and visualization; used controlled experiments to improve architecture and training choices.',
+    'Achieved <b>99.63% surface reconstruction F1 on 100 fixed training shapes</b>, measuring the balance of recovered and extra faces. Evaluations under different posterior-noise conditions gave similar scores.']),
    ('Persona-to-Scene: Multi-Agent Scene Generation and Editing','Jul 15 - Aug 15, 2026',[
-    'Developed a multi-agent pipeline from persona descriptions to scene content, spatial layouts, and structured generation instructions for interior image generation and event-driven editing.',
-    'Used evidence tracking, schema validation, and paired-image evaluation in end-to-end case studies.']),
-   ('SceneFun3D Track 1: Functionality Segmentation','',[
-    'Participated with team Night\'s Watch; prepared the environment and dataset, reproduced a 3D perception baseline, and organized training, inference, and evaluation workflows.',
-    'Investigated functional-region understanding and affordance localization in indoor scenes. Test-set results are listed on the official SceneFun3D benchmark.']),
+    'Built collaborating AI agents that turn a person’s interests and daily habits into a room layout and personalized interior images.',
+    'Supported scene editing as activity needs change; used information tracking, instruction validation, and before/after image comparisons in end-to-end case studies.']),
+   ('SceneFun3D Track 1: Interactive 3D Scene Understanding','',[
+    'Competed independently under the name Night’s Watch, identifying interactive parts of indoor 3D scenes, such as handles and buttons.',
+    'Completed environment and data preparation, baseline reproduction, training, and evaluation. Test-set results are listed on the official SceneFun3D benchmark.']),
    ('RoboGame: RGB-D Perception and Robotic Grasping','Jun - Oct 2026',[
-    'Built RealSense D435i block detection and 3D localization with depth alignment, IMU tilt compensation, and multi-frame averaging. Integrated camera-to-arm transforms, five-servo inverse kinematics, and suction-grasp control; completed hardware integration testing.']),
+    'Built a vision-guided grasping system: a RealSense D435i depth camera locates colored blocks, and a robotic arm uses a suction cup to pick them up. Completed perception, arm control, and hardware integration testing.']),
    ('Facial Expression Recognition','',[
-    'Implemented MobileNetV2 classification on FER2013 and compared accuracy and computational cost with ResNet, EfficientNet, and MAE-DFER.'])],
+    'Trained a lightweight MobileNetV2 classifier on FER2013 to recognize expressions such as happiness and surprise; compared several models on accuracy and computational cost.'])],
   'skills':'TECHNICAL SKILLS','skill_lines':[
    '<b>Programming:</b> Python, C/C++, Linux/Ubuntu, Git.',
    '<b>Machine learning:</b> PyTorch, training and debugging, evaluation, 3D mesh processing.',
