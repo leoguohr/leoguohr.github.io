@@ -1,5 +1,7 @@
 """Build the public CVs; no phone number, class rank, or private repository URL."""
 from pathlib import Path
+import shutil
+import subprocess
 from reportlab.lib import colors
 from reportlab.lib.enums import TA_CENTER
 from reportlab.lib.pagesizes import A4
@@ -14,33 +16,6 @@ BLUE = colors.HexColor('#1F4E79')
 GRAY = colors.HexColor('#41464b')
 
 DATA = {
- 'zh': {
-  'name':'郭浩然','file':'郭浩然简历.pdf',
-  'education':'教育背景','school':'中国科学技术大学（USTC）',
-  'degree':'信息科学技术学院 · 本科在读 | 2024.09 - 至今 | 预计2028年6月毕业',
-  'courses':'核心课程：数学分析、线性代数、模拟电子技术、数字电子技术、现代控制理论。',
-  'section':'科研与项目经历',
-  'projects':[
-   ('NEXUS：三维形状生成与重建','2026.07.15 - 08.15',[
-    '三维物体表面可用相互连接的小三角形表示，称为网格（mesh）。围绕NEXUS实现三维点生成与拓扑重建模型，学习点的位置及连接关系。',
-    '使用PyTorch搭建数据处理、模型训练、结果评价和可视化流程，并通过对照实验改进模型结构与训练方式。',
-    '在固定100个训练样本上，表面重建F1评分达到99.63%，综合衡量生成表面的完整性与准确性；不同随机采样条件下保持相近表现。']),
-   ('Persona-to-Scene：多智能体场景生成与编辑','2026.07.15 - 08.15',[
-    '开发多个AI协作的场景生成系统，根据人物的兴趣与生活习惯，规划房间布局并生成个性化室内图像。',
-    '支持活动需求变化后的场景编辑；通过信息追踪、指令校验及生成前后图像对比，验证从人物描述到场景修改的完整流程。']),
-   ('SceneFun3D Track 1：三维场景交互区域识别','',[
-    '独立参赛并获得第六名。任务是从三维室内场景中识别把手、按钮等可交互部位，帮助计算机理解物体的使用方式。',
-    '独立完成环境与数据准备、基线模型复现、训练和评价；测试集提交已收录于SceneFun3D官方公开榜单。']),
-   ('RoboGame：视觉识别与机械臂抓取','2026.06 - 10',[
-    '使用RealSense D435i深度相机识别彩色方块并估计三维位置，再控制机械臂用吸盘完成抓取、抬升和返回；完成视觉定位、机械臂控制及实机联调。']),
-   ('基于深度学习的人脸表情识别','',[
-    '基于MobileNetV2训练图像分类模型，识别高兴、惊讶等人脸表情；在FER2013数据集上比较多种模型的准确率与计算开销。'])],
-  'skills':'技术能力','skill_lines':[
-   '编程与开发：Python、C/C++、Linux/Ubuntu、Git。',
-   '深度学习：PyTorch模型实现、训练调试、推理评价、三维网格处理与对照实验。',
-   '机器人与工具：MuJoCo、STM32、MATLAB。'],
-  'honors':'荣誉与活动','honor_text':'中国科学技术大学优秀学生奖学金；中国科学技术大学拳击队成员。'
- },
  'en': {
   'name':'HAORAN GUO','file':'Haoran_Guo_CV.pdf',
   'education':'EDUCATION','school':'University of Science and Technology of China (USTC)',
@@ -71,6 +46,10 @@ DATA = {
 }
 
 def build(lang):
+ if lang == "zh":
+  tectonic = shutil.which("tectonic") or str(ROOT.parent / "tools/bin/tectonic")
+  subprocess.run([tectonic, "--outdir", str(ROOT / "assets"), str(ROOT / "scripts/郭浩然简历.tex")], check=True)
+  return
  d=DATA[lang];cn=lang=='zh';font='STSong-Light' if cn else 'Helvetica';bold=font if cn else 'Helvetica-Bold'
  body=ParagraphStyle('body',fontName=font,fontSize=10.2 if cn else 9.6,leading=14.6 if cn else 12.7,textColor=GRAY,wordWrap='CJK' if cn else None,spaceAfter=3)
  name=ParagraphStyle('name',parent=body,fontName=bold,fontSize=25,leading=29,alignment=TA_CENTER,spaceAfter=6)
@@ -91,4 +70,5 @@ def build(lang):
  heading(d['honors']);story.append(Paragraph(d['honor_text'],body))
  path=ROOT/'assets'/d['file'];SimpleDocTemplate(str(path),pagesize=A4,leftMargin=40,rightMargin=40,topMargin=29,bottomMargin=28,title='郭浩然简历' if cn else 'Haoran Guo - Curriculum Vitae',author='Haoran Guo').build(story)
  print(path)
-for lang in ['zh','en']:build(lang)
+if __name__ == '__main__':
+ for lang in ['zh','en']:build(lang)

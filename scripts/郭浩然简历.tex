@@ -1,0 +1,123 @@
+% Based on Overleaf template:
+% Traditional Chinese Resume Template_Academic
+% https://www.overleaf.com/latex/templates/traditional-chinese-resume-template-academic/zqgqgwwdngfy
+
+\documentclass[10pt,a4paper,fontset=fandol]{ctexart}
+
+\usepackage[a4paper,margin=1.25cm]{geometry}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage[hidelinks]{hyperref}
+\usepackage{setspace}
+\usepackage{ragged2e}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\setstretch{1.08}
+
+\definecolor{accent}{HTML}{1F4E79}
+\definecolor{textgray}{HTML}{333333}
+
+\setlist[itemize]{
+  leftmargin=1.5em,
+  itemsep=0.2em,
+  topsep=0.22em,
+  parsep=0em,
+  partopsep=0em
+}
+\renewcommand{\labelitemi}{\textcolor{accent}{\small\textbullet}}
+
+\newcommand{\nameblock}[1]{
+  {\centering\fontsize{20pt}{22pt}\selectfont\bfseries #1\par}
+  \vspace{0.6em}
+}
+
+\newcommand{\centerlinecn}[1]{
+  {\centering\small\color{textgray} #1\par}
+  \vspace{0.35em}
+}
+
+\newcommand{\resumesection}[1]{
+  \vspace{0.72em}
+  {\large\bfseries\color{accent} #1\par}
+  \vspace{0.22em}
+  {\color{accent}\hrule height 0.6pt}
+  \vspace{0.32em}
+}
+
+\newcommand{\entry}[4]{
+  \vspace{0.35em}
+  {\normalsize\bfseries #1}
+  \if\relax\detokenize{#3}\relax
+    \hfill{\small\color{textgray}#4}\par
+  \else
+    \par
+    \begin{tabularx}{\linewidth}{@{}>{\small\color{textgray}\RaggedRight\arraybackslash}X >{\small\color{textgray}\RaggedLeft\arraybackslash}p{0.33\linewidth}@{}}
+      #3 & #4
+    \end{tabularx}
+  \fi
+  \par\vspace{0.08em}
+}
+
+\begin{document}
+
+\nameblock{郭浩然}
+\centerlinecn{邮箱：\href{mailto:ghr@mail.ustc.edu.cn}{ghr@mail.ustc.edu.cn} \quad｜\quad 个人主页：\href{https://leoguohr.github.io/}{leoguohr.github.io}}
+\centerlinecn{中国科学技术大学信息科学技术学院 \quad｜\quad 预计毕业时间：2028 年 6 月}
+\vspace{0.18em}
+
+\resumesection{教育背景}
+\entry{中国科学技术大学（USTC）}{}{信息科学技术学院，本科}{2024.09 -- 至今}
+\begin{itemize}
+  \item \textbf{GPA：3.52/4.3。}
+  \item 核心课程：数学分析、线性代数、模拟电子技术、数字电子技术、现代控制理论。
+\end{itemize}
+
+\resumesection{科研与项目经历}
+
+\entry{NEXUS：三维形状生成与拓扑重建}{}{}{2026.07.15 -- 08.15}
+\begin{itemize}
+  \item \textbf{模型实现：}基于 PyTorch 实现并迭代拓扑 VAE 与点云条件八叉树顶点扩散模型，学习三维点的位置及连接关系，开展三维形状生成与重建实验。
+  \item \textbf{训练与分析：}搭建数据处理、训练恢复、实际拓扑重建评价与可视化流程；针对 Fourier 坐标编码、Graph 归一化顺序及负例采样开展对照实验。
+  \item \textbf{实验结果：}最终 VAE 在固定 100 个训练样本上的实际面重建 \textbf{micro-F1 达到 99.63\%}，五组随机后验采样下保持相近水平。
+\end{itemize}
+
+\entry{Persona-to-Scene：多智能体场景生成与编辑}{}{}{2026.07.15 -- 08.15}
+\begin{itemize}
+  \item \textbf{个性化生成：}开发多智能体协作流程，根据人物身份、性格与生活习惯，生成场景内容、空间布局和结构化指令，实现个性化室内图像生成。
+  \item \textbf{场景编辑与验证：}支持活动需求变化后的场景编辑；结合信息追踪、指令校验及成对图像评价，完成从人物描述到室内场景生成与修改的端到端案例验证。
+\end{itemize}
+
+\entry{SceneFun3D Track 1：三维场景交互区域识别}{}{}{独立参赛，第六名}
+\begin{itemize}
+  \item \textbf{任务与实现：}面向真实室内三维场景的功能区域识别，定位把手、按钮等可交互部位；独立完成开发环境配置、数据准备与基线三维感知模型复现。
+  \item \textbf{训练与评价：}完成模型训练、推理与测试集提交，梳理功能区域分割的评价流程；结果收录于 SceneFun3D 官方公开榜单。
+\end{itemize}
+
+\entry{RoboGame：视觉识别与机械臂抓取机器人}{}{}{2026.06 -- 10}
+\begin{itemize}
+  \item 基于 RealSense D435i 实现彩色方块识别与三维定位，结合深度对齐、IMU 倾角补偿和多帧平均处理目标坐标。
+  \item 完成相机到机械臂坐标系转换，对接五舵机逆运动学，实现吸盘抓取、抬升及返回流程，加入可达性与舵机限位检查；完成实机联调。
+\end{itemize}
+
+\entry{基于深度学习的人脸表情识别（FER）}{}{}{}
+\begin{itemize}
+  \item 基于 MobileNetV2 实现 FER2013 表情识别，组织对比 ResNet、EfficientNet、MAE-DFER 的分类准确率与计算开销，负责任务分工及训练评测流程。
+\end{itemize}
+
+\resumesection{技术能力}
+\begin{itemize}
+  \item \textbf{编程与开发：}Python、C/C++；Linux／Ubuntu 环境开发、Git 版本管理。
+  \item \textbf{深度学习：}PyTorch 模型实现、训练调试、推理与评估；三维网格数据处理与实验对照。
+  \item \textbf{机器人与仿真：}MuJoCo、STM32、MATLAB。
+\end{itemize}
+
+\resumesection{荣誉与活动}
+\begin{itemize}
+  \item 中国科学技术大学优秀学生奖学金；中国科学技术大学拳击队成员。
+\end{itemize}
+
+\end{document}
